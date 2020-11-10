@@ -5,7 +5,6 @@ import com.aeert.groovy.common.utils.R;
 import com.aeert.groovy.entity.GroovyRuleEntity;
 import com.aeert.groovy.service.GroovyRuleService;
 import com.aeert.groovy.service.IRule;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -34,9 +33,7 @@ public class GroovyController {
     @CacheEvict(value = {"getRuleByName"}, allEntries = true)
     public R updateDbRule(@RequestParam String ruleName, @RequestBody String rule) throws Exception {
         GroovyRuleEntity groovyRuleEntity = groovyRuleService.getRuleByName(ruleName);
-        groovyRuleService.update(new UpdateWrapper<GroovyRuleEntity>().lambda()
-                .eq(GroovyRuleEntity::getId, groovyRuleEntity.getId()).set(GroovyRuleEntity::getRule, rule));
-//        groovyRuleService.updateById(groovyRuleEntity.setRule(rule));
+        groovyRuleService.updateById(groovyRuleEntity.setRule(rule));
         return R.ok(groovyRuleEntity);
     }
 
