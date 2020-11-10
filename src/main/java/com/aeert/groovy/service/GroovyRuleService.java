@@ -14,7 +14,7 @@ public interface GroovyRuleService extends IService<GroovyRuleEntity> {
     /**
      * 根据规则名称获取规则信息
      **/
-    GroovyRuleEntity getByName(String name);
+    GroovyRuleEntity getRuleByName(String name);
 
 }
 

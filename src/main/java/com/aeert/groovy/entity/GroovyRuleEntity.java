@@ -3,6 +3,7 @@ package com.aeert.groovy.entity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,6 +14,7 @@ import java.util.Date;
  * @Date 2020/11/10 上午9:57
  **/
 @Data
+@Accessors(chain = true)
 @TableName("tb_groovy_rule")
 public class GroovyRuleEntity implements Serializable {
     private static final long serialVersionUID = 1L;
